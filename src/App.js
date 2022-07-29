@@ -8,9 +8,10 @@ function App() {
   const [board, setBoard] = useState(["","","","","","","","","" ]);
   const [player, setPlayer] = useState("X");
   const [result, setResult] = useState({winner: "none", state: "none"});
+
   useEffect(() =>{
-    checkWin();
     checkTie();
+    checkWin();
     if(player === "X")
     {
       setPlayer("O")
@@ -27,6 +28,7 @@ Click Ok to restart the game`);
       restartGame();
     }
   }, [result])
+
   const chooseSquare =(square) =>{
     setBoard(board.map((val,idx) => {
       if(idx === square && val === ""){
